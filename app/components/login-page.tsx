@@ -1,7 +1,9 @@
 // components/login-page.tsx
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
+import catimage from "../../public/cat.jpeg";
 
 interface LoginPageProps {
   onLogin: (password: string) => void;
@@ -26,8 +28,18 @@ export function LoginPage({ onLogin }: LoginPageProps) {
       <div className="w-full max-w-md">
         {/* Logo / Brand */}
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500/20 to-blue-500/20 border border-white/10 mb-4">
+          {/* <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500/20 to-blue-500/20 border border-white/10 mb-4">
             <span className="text-3xl">🌍</span>
+          </div> */}
+          <div className="inline-flex items-center justify-center mb-4 w-34 h-34 bg-linear-to-br from-slate-400 to-slate-500 shadow-xl shadow-slate-700 rounded-xl ">
+            <Image
+              src={catimage}
+              alt="cute cat image"
+              width={64}
+              height={64}
+              className="object-cover w-24 h-24 rounded-xl"
+              rounded-xl
+            />
           </div>
           <h1 className="text-2xl font-bold bg-gradient-to-r from-white to-blue-300 bg-clip-text text-transparent">
             Horizon
