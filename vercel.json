@@ -8,7 +8,7 @@
   "functions": {
     "app/**/*.tsx": {
       "runtime": "edge",
-      "regions": ["auto"]
+      "regions": ["fra1", "iad1", "hnd1"]
     }
   },
   "headers": [
