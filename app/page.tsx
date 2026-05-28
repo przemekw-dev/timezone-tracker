@@ -1,6 +1,9 @@
 // app/page.tsx
 "use client";
 
+export const runtime = "edge";
+export const preferredRegion = "auto";
+
 import { useState, useEffect } from "react";
 import { PeopleTracker } from "@/components/people-tracker";
 import { people } from "@/lib/people-data";
