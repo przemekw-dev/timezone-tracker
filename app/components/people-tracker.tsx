@@ -49,25 +49,42 @@ export function PeopleTracker({ people }: PeopleTrackerProps) {
   }, [people, isClient]);
 
   // Sort chronologically based on ACTUAL date and time (ascending)
+  // const peopleWithTimes = useMemo(() => {
+  //   const list = Array.from(timeData.values());
+  //   return list.sort((a, b) => {
+  //     // Get the actual timestamp for each person's local date and time
+  //     // We need to compare the full date-time, not just hour/minute
+
+  //     // Get current UTC time
+  //     const nowUTC = DateTime.now();
+
+  //     // Get each person's local datetime as a comparable timestamp
+  //     // We need to know WHAT DAY it is for them locally
+  //     const aDateTime = DateTime.now().setZone(a.timezone);
+  //     const bDateTime = DateTime.now().setZone(b.timezone);
+
+  //     // Compare the full timestamps (this takes day, hour, minute, second into account)
+  //     const aTimestamp = aDateTime.toMillis();
+  //     console.log("Atimestamp: ", aTimestamp);
+  //     const bTimestamp = bDateTime.toMillis();
+  //     console.log("Btimestamp: ", bTimestamp);
+
+  //     console.log("Equal ? :", aTimestamp === bTimestamp);
+
+  //     return aTimestamp - bTimestamp;
+  //   });
+  // }, [timeData]);
+
   const peopleWithTimes = useMemo(() => {
-    const list = Array.from(timeData.values());
-    return list.sort((a, b) => {
-      // Get the actual timestamp for each person's local date and time
-      // We need to compare the full date-time, not just hour/minute
+    return Array.from(timeData.values()).sort((a, b) => {
+      const aDt = DateTime.now().setZone(a.timezone);
+      const bDt = DateTime.now().setZone(b.timezone);
 
-      // Get current UTC time
-      const nowUTC = DateTime.now();
+      const aValue = aDt.ordinal * 1440 + aDt.hour * 60 + aDt.minute;
 
-      // Get each person's local datetime as a comparable timestamp
-      // We need to know WHAT DAY it is for them locally
-      const aDateTime = DateTime.now().setZone(a.timezone);
-      const bDateTime = DateTime.now().setZone(b.timezone);
+      const bValue = bDt.ordinal * 1440 + bDt.hour * 60 + bDt.minute;
 
-      // Compare the full timestamps (this takes day, hour, minute, second into account)
-      const aTimestamp = aDateTime.toMillis();
-      const bTimestamp = bDateTime.toMillis();
-
-      return aTimestamp - bTimestamp;
+      return aValue - bValue;
     });
   }, [timeData]);
 
