@@ -170,9 +170,9 @@ export function PeopleTracker({ people }: PeopleTrackerProps) {
             global timezone tracker
           </p>
         </div>
-        <div className="flex items-center gap-1.5 bg-white/5 px-2 py-1 rounded-full border border-white/10">
-          <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse" />
-          <span className="text-[9px] font-mono text-slate-300">
+        <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-slate-700/40 w-38 bg-linear-to-br from-slate-700/40 via-slate-400/20 to-slate-800/40">
+          <div className="w-2.5 h-2.5 bg-emerald-400 rounded-full mx-1 animate-pulse" />
+          <span className="text-md font-mono text-slate-300">
             {currentTime?.toLocaleTimeString("en-US", {
               hour: "2-digit",
               minute: "2-digit",

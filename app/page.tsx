@@ -54,15 +54,15 @@ export default function HomePage() {
   }
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
-      <div className="fixed top-4 right-4 z-50">
-        <button
+    <main className="min-h-screen max-w-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
+      {/* <div className="relative sm:fixed top-4 right-4 z-50"> */}
+      {/* <button
           onClick={handleLogout}
           className="bg-white/5 hover:bg-white/10 text-slate-300 text-xs px-3 py-1.5 rounded-full border border-white/10 transition-all"
         >
           <i className="fas fa-sign-out-alt mr-1" /> Logout
-        </button>
-      </div>
+        </button> */}
+      {/* </div> */}
       <PeopleTracker people={people} />
     </main>
   );

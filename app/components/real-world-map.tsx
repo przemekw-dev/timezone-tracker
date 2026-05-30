@@ -300,8 +300,8 @@ export function RealWorldMap({ people }: RealWorldMapProps) {
       </div>
 
       {/* Map Title */}
-      <div className="absolute top-2 left-2 bg-black/60 backdrop-blur-sm rounded px-2 py-1 z-10">
-        <span className="text-[9px] text-slate-400 font-mono font-semibold">
+      <div className="absolute top-2 left-2 from-slate-800/40 via-slate-400/20 to-slate-90-40 bg-linear-to-br  border-1 border-slate-600/40  backdrop-blur-sm rounded px-2 py-1 z-10">
+        <span className="text-[9px] text-slate-400 font-mono font-semibold flex bg-transparent justify-center items-center rounded-xl ">
           🌍 LIVE WORLD MAP
         </span>
       </div>
