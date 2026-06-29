@@ -7,6 +7,8 @@ import { RealWorldMap } from "./real-world-map";
 import { Person, PersonWithTime } from "@/lib/types";
 import { getCurrentTimeData } from "@/lib/time-utils";
 import { DateTime } from "luxon";
+import { PlusCircle } from "lucide-react";
+import AddNewPersonModal from "./AddNewPersonModal";
 
 interface PeopleTrackerProps {
   people: Person[];
@@ -16,6 +18,8 @@ export function PeopleTracker({ people }: PeopleTrackerProps) {
   const [timeData, setTimeData] = useState<Map<string, PersonWithTime>>(
     new Map(),
   );
+
+  const [isAddNewPersonModalOpen, setIsAddNewPersonModalOpen] = useState(false);
   const [currentTime, setCurrentTime] = useState<Date | null>(null);
   const [filter, setFilter] = useState<"all" | "awake" | "waking" | "asleep">(
     "all",
@@ -257,6 +261,21 @@ export function PeopleTracker({ people }: PeopleTrackerProps) {
           <PersonCard key={person.id} person={person} />
         ))}
       </div>
+
+      <div className="flex items-center justify-end mt-4">
+        <button
+          onClick={() => setIsAddNewPersonModalOpen(true)}
+          className="flex flex-row items-center justify-center gap-2 py-2 px-4 border border-gray-500/20 from-slate-700/40 via-slate-500/30 to-slate-800/40 shadow-md bg-linear-to-br hover:bg-slate-300/10 hover:cursor-pointer text-slate-300 text-[10px] font-medium rounded-full transition-all"
+        >
+          <PlusCircle size={14} className="text-slate-500" />
+          Add New Person
+        </button>
+      </div>
+
+      <AddNewPersonModal
+        isOpen={isAddNewPersonModalOpen}
+        setIsOpen={setIsAddNewPersonModalOpen}
+      />
 
       {/* Footer */}
       {/* <div className="mt-4 pt-2 text-center text-[8px] text-slate-600 border-t border-white/5">
